@@ -1,0 +1,477 @@
+@font-face {
+    src: url(./fonts/Montserrat-Regular.ttf);
+    font-family: "Monts";
+}
+
+@font-face {
+    src: url(./fonts/RobotoMono-VariableFont_wght.ttf);
+    font-family: "RobotoMono";
+}
+
+html {
+    scroll-behavior: smooth;        /*applies a smooth page scrolling when using the nav bar links*/
+}
+
+body {
+    margin: 0%;
+    opacity: 1;
+    transition: 3s opacity;
+    letter-spacing: .2vw;
+    font-family: "Monts", monospace, Arial;
+    font-size: 1.5vw;
+}
+
+body.fade-out {
+    opacity: .1;
+    transition: none;
+}
+
+/*==========================================
+    NAVBAR
+============================================*/
+.navbar {
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+      position: fixed;
+    -webkit-animation: moveNav 5s;
+      animation: moveNav 5s;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    padding: .75vw 1vw;
+    text-decoration: none;
+    font-family: "RobotoMono", monospace, Arial;
+    font-size: 1.2vw;
+    text-align: center;
+      position: relative;
+    -webkit-animation: movenavText 5.75s;
+      animation: movenavText 5.75s;
+    letter-spacing: .2vw;
+}
+
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+@keyframes movenavText {
+    from {top: -100vw}
+    to {top: 0vw;}
+}
+
+@keyframes movevideoText {
+    from {top: -100vw;}
+    to {top: 0px;}
+}
+
+.navbar a:hover {
+    background-color: rgb(248, 248, 242);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+}
+
+.navbar a.active {
+    background-color: darkgray;
+}
+
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1.5,1.5);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+/*==========================================
+    VIDEO
+============================================*/
+#code_video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-height: 100%;
+    top: 0;
+    z-index: -1;
+    animation: zoominoutsinglefeatured 5s;
+}
+
+.video_text {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 100%;
+    padding-top: .1vh;
+    padding-bottom: 1vh;
+    margin-top: 23%;
+      position: relative;
+    -webkit-animation: moveNav 4s;
+      animation: movevideoText 4s;
+    text-align: center;
+    font-family: "RobotoMono", monospace, Arial;
+}
+
+/*=========================================
+    SLIDESHOW
+===========================================*/
+#slideshow_background {
+    background: rgba(0,0,0,0.35);
+}
+
+.mySlides {
+    display: none;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+/*==========================================
+    SLIDESHOW CONTAINER
+============================================*/
+#slideshow_container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+/*==========================================
+    SLIDESHOW IMAGE CONTAINER
+============================================*/
+.slide_show_images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    width: auto;
+}
+
+/*==========================================
+    NEXT & PREVIOUS BUTTONS
+============================================*/
+.previous, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    margin-top: -0vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.previous:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/*==========================================
+    SLIDESHOW TEXT
+============================================*/
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: "Monts", monospace, Arial;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.slide_number {
+    color: white;
+    position: absolute;
+    top: 0;
+    font-family: "Monts", monospace, Arial;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    display: none;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    position: relative;
+    z-index: 0;
+}
+
+.active, .dot:hover {
+    background-color: black;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+/*==========================================
+    TABLE SECTION
+============================================*/
+* {
+    box-sizing: border-box;
+}
+
+.column_1 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 3%;
+    height: 550px;
+    background-color: #44475a;
+}
+
+.column_2 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 1.9%;
+    height: 550px;
+    background-color: #282a36;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*=======================================
+    HEADING ELEMENTS
+=========================================*/
+h1 {
+    text-transform: uppercase;
+    font-family: 'RobotoMono', monospace, Arial;
+    font-size: 2vw;
+    text-align: center;
+    margin-top: 3%;
+    color: #f8f8f2;
+}
+
+/*========================================
+    PARAGRAPH ELEMENTS
+==========================================*/
+P {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+
+
+li {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 10px; 
+}
+
+.opening_statement {
+    font-size: 1vw;
+}
+
+/*=========================================
+    ANCHOR ELEMENTS
+===========================================*/
+a {
+    color: #8be9fd;
+    text-decoration: none;
+}
+
+/*=========================================
+    QUOTATION ELEMENTS
+===========================================*/
+q {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.2vw;
+}
+
+/*==========================================
+    IMAGE ELEMENTS
+============================================*/
+img {
+    filter: grayscale(75%);
+    border-radius: 8px;
+    max-width: 100%;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    display: block;
+}
+
+/*==========================================
+    CONTACT FORM BUTTON
+============================================*/
+@keyframes movePopup {
+    from {right: -40vw;}
+    to {bottom: 1.75vw;}
+}
+
+.pop_up_button {
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 10vw;
+    height: 2vw;
+    padding: 1px 2px;
+    font-size: 1vw;
+    background-color: white;
+    color: black;
+    border: solid;
+    cursor: pointer;
+    position: fixed;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
+}
+
+/*==========================================
+    POPUP FORM
+============================================*/
+.form-popup {
+    border: 3px solid rgb(248, 248, 242);
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: 6px;
+    right: 6px;
+}
+
+.form-container {
+    max-width: 49vw;
+    padding: 9px;
+    background-color: #282a36;
+}
+
+/*==========================================
+    CONTACT FORM
+============================================*/
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background-color: whitesmoke;
+    font-family: "Monts", monospace, Arial;
+    font-size: 1vw;
+}
+
+.form-container .btn {
+    background-color: whitesmoke;
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+.form-container .cancel {
+    background-color: black;
+    color: whitesmoke;
+    border-color: gray;
+}
+
+button {
+    font-family: "Monts", monospace, Arial;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw 1.5vw;
+    border-style: solid;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+button:hover, .form-container .btn:hover {
+    color: whitesmoke;
+    background-color: black;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: silver;
+}
+
+.form-container .cancel:hover {
+    color: whitesmoke;
+    background-color: rgb(68, 71, 90);
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: black;
+}
+
+/*==========================================
+    HOVER EFFECT ELEMENTS
+============================================*/
+p:hover {
+    transition: transfrom 1s ease-in-out;
+    transform: scale(1.02);
+}
+
+ul:hover {
+    transition: transfrom 1s ease-in-out;
+    transform: scale(1.02); 
+}
+
+h1:hover {
+    font-weight: normal;
+}
+
+/* Removing hover effects for the moment, too distracting*/
+/* img:hover {
+    filter: grayscale(50%);
+    transition: transform 1s ease-in-out;
+    transform: scale(1.1);
+} */
+
+
+/*===============================================
+    FOOTER ELEMENTS
+=================================================*/
+footer {
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(248, 248, 242);
+}
